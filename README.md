@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # **Finding Lane Lines on the Road** 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
@@ -58,3 +59,6 @@ A well written README file can enhance your project and portfolio.  Develop your
 =======
 # Self_Driving_Car_ND_Projects
 >>>>>>> c98339546b710728db2386317e7ead7d7dd19599
+=======
+# Self_Driving_Car_ND
+>>>>>>> b2f02a76ef05cfd6739b573178bb9388bcc93ec6

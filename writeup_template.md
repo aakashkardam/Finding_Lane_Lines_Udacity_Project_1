@@ -25,6 +25,7 @@ The goals / steps of this project are the following:
 
 My pipeline along with a sample output is as follows:
 ![TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform](Sample_Output_4m_Pipeline.jpg)
+*Fig. TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform
 1) Read in the image using imread function and convert it to a gray scale image with only one channel.
 2) Since the images are likely to have noise, I used the gaussian_blur method to average out the pixel intensities and reduce noise.
 3) Apply the canny method to identify edges (sharp change in intensity between adjacent pixels) in the image using appropriate parameters (keeping the ratio of low threshold : high threshold as 1:3 as recommended). 

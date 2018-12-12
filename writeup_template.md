@@ -44,7 +44,10 @@ Next, I take the average of the line paramters (m,b) using the numpy.average fun
 One potential shortcoming would be what would happen when the consecutive frames (images) in a video do not have lanes in it. As such the current status of the pipeline would not be able to handle such scenarios. 
 
 Another shortcoming is to isolate lanes from other objects in the image. As demonstrated in the output video for challenge case. It is not able to handle the edges from the sides of the road. A snapshot from the output shows correct lane detection for the right lane but not for the left lane. This requires more work and better tuning of parameters for annotating accurately.
+
+
 ![Challenge output](challenge.jpg)
+
 
 Another issue could be the lighting in the image. If the car drives through a tunnel. The lighting would be different and the lane detector might not work. It would take time to adjust to the new lighting and the transition might not be smooth resulting in abrupt and worryisome behavior.
 

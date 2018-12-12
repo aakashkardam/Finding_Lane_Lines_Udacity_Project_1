@@ -23,28 +23,16 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline is as follows:
+My pipeline along with a sample output is as follows:
 1) Read in the image using imread function and convert it to a gray scale image with only one channel.
-
-![alt test](Gray_Image.pdf)
-
 2) Since the images are likely to have noise, I used the gaussian_blur method to average out the pixel intensities and reduce noise.
 3) Apply the canny method to identify edges (sharp change in intensity between adjacent pixels) in the image using appropriate parameters (keeping the ratio of low threshold : high threshold as 1:3 as recommended). 
-
-![alt test](Canny_Image.pdf)
-
 4) The next thing to do is to define a region of interest (as masked region) using vertices. There could be a lot of edges in the images but we want to restrict to only the part of the image which has lanes in it and ignore the rest.
-
-![alt test](Masked_Region_Image.pdf)
-
 5) Use the Hough transform with appropriate parameters and draw hough lines on the image.
-
-![alt test](Hough_Lines_Image.pdf)
-
 6) Wrote additional function instead of changing the draw_lines function for averaging and extrapolating the lines obtained through Hough transform.
 7) At last, display the averaged-extrapolated lines on the original image as annotations aand visually compare how precise they are.
 
-![alt test](Annotated_Lane_Image.pdf)
+![alt test](Sample_Output_4m_Pipeline.pdf)
 
 My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
 

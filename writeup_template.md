@@ -32,27 +32,20 @@ My pipeline along with a sample output is as follows:
 6) Wrote additional function instead of changing the draw_lines function for averaging and extrapolating the lines obtained through Hough transform.
 7) At last, display the averaged-extrapolated lines on the original image as annotations aand visually compare how precise they are.
 
-![alt test](Sample_Output_4m_Pipeline.pdf)
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
+![TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform](Sample_Output_4m_Pipeline.pdf)
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
+One potential shortcoming would be what would happen when the consecutive frames (images) in a video do not have lanes in it. As such the current status of the pipeline would not be able to handle such scenarios. 
 
-One potential shortcoming would be what would happen when ... 
+Another shortcoming is to isolate lanes from other objects in the image. As demonstrated in the output video for challenge case. It is not able to handle the edges from the sides of the road. A snapshot from the output shows correct lane detection for the right lane but not for the left lane. This requires more work and better tuning of parameters for annotating accurately.
 
-Another shortcoming could be ...
+![Challenge output](challenge.jpg)
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+A possible improvement would be to 
 
 Another potential improvement could be to ...

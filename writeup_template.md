@@ -1,9 +1,6 @@
 # **Finding Lane Lines on the Road** 
 
 ## Project 1
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Finding Lane Lines on the Road**
@@ -25,7 +22,8 @@ The goals / steps of this project are the following:
 
 My pipeline along with a sample output is as follows:
 ![TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform](Sample_Output_4m_Pipeline.jpg)
-*Fig. TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform
+Fig. TopLeft: Gray Image, TopRight: Canny Image, BottomLeft: Lanes in the Masked Region, BottomRight: Lines from Hough Transform
+
 1) Read in the image using imread function and convert it to a gray scale image with only one channel.
 2) Since the images are likely to have noise, I used the gaussian_blur method to average out the pixel intensities and reduce noise.
 3) Apply the canny method to identify edges (sharp change in intensity between adjacent pixels) in the image using appropriate parameters (keeping the ratio of low threshold : high threshold as 1:3 as recommended). 
@@ -34,6 +32,7 @@ My pipeline along with a sample output is as follows:
 6) Wrote additional function instead of changing the draw_lines function for averaging and extrapolating the lines obtained through Hough transform.
 7) At last, display the averaged-extrapolated lines on the original image as annotations aand visually compare how precise they are.
 ![Detected Lanes Annotated on the Original Image](Annotated_Lanes_Image.jpg)
+Fig. Detected Lanes Annotated on the Original Image
 
 ## How did I modify the draw_lines function to compute average and extrapolation?
 I ended up writng another helper function on my own to do the same. I started with two empty lists: left\_lane and right\_lane. Now I iterate over the lines obtained from the Hough transform and use numpy.polyfit() function to linearly fit the lines and get the line parametres like slope and intercepts(m,b) of all the lines. If the slope is negative, I append these paramters in the left\_lane list and similarly to the right\_lane list if the slope is positive. It makes sense because in the image frame, the y-axis is inverted and therefore if we march on the left lane we are moving in positive-x and negative-y direction and hence the slope should be negative and vice versa.
@@ -52,6 +51,8 @@ Another issue could be the lighting in the image. If the car drives through a tu
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to use better color detection like HSV channels.
+A possible improvement would be to use better color detection like HSV channels. The lane detection is dependent upon good color selection schemes. 
 
-Another potential improvement could be to ...
+Another potential improvement could be to use moving averages. In case the frame doesn't have a lane in it to be detected. One can make use of the lane detected in the last frame assuming that it is going to be similar. This would make the pipeline a lot better.
+
+One can also use the LSD (Line Segment Detector) algorithms to detect the lines which are considered best. We can also try using directional gradients using sobel method in opencv and that way we can get rid of the canny function as well.  
